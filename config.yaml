@@ -1,0 +1,75 @@
+global:
+  save_root: './checkpoints'
+  exp_name: 'test-release'
+
+dataset:
+  data_root: 'CustomHumans.h5'
+  num_samples: 20480
+  repeat_times: 8
+
+optimizer:
+  lr_codebook: 0.0005
+  lr_decoder: 0.001
+  lr_dis: 0.001
+  beta1: 0.5
+  beta2: 0.999
+
+
+train:
+  epochs: 5000
+  batch_size: 4
+  workers: 8
+  save_every: 50
+  log_every: 100
+  use_2d_from_epoch: 10
+  train_2d_every_iter: 1
+  use_nrm_dis: False
+  use_cached_pts: True
+
+dictionary:
+  shape_dim: 32
+  color_dim: 32
+  feature_std: 0.1
+  feature_bias: 0.0
+  shape_pca_dim: 16
+  color_pca_dim: 16
+
+
+network:
+  pos_dim: 3
+  c_dim: 3
+  num_layers: 4
+  hidden_dim: 128
+  skip:
+    - 2
+  activation: 'relu'
+  layer_type: 'none'
+
+
+embedder:
+  shape_freq: 5
+  color_freq: 10
+
+
+losses:
+  lambda_sdf: 100.
+  lambda_rgb: 10.
+  lambda_nrm: 10.
+  lambda_reg: 1.
+
+  gan_loss_type: 'logistic'
+  lambda_gan: 1.
+  lambda_grad: 10.
+
+
+validation:
+  valid_every: 50
+  subdivide: True
+  grid_size: 400
+  width: 1024
+  fov: 20.0
+  n_views: 1
+
+wandb:
+  wandb: False
+  wandb_name: 'custom-test'

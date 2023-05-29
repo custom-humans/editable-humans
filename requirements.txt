@@ -1,0 +1,14 @@
+torch==1.11.0
+h5py
+smplx
+wandb
+trimesh
+opencv-python
+git+https://github.com/tinyobjloader/tinyobjloader.git@v2.0.0rc8#subdirectory=python
+
+--extra-index-url https://download.pytorch.org/whl/cu113
+torch==1.11.0+cu113 
+torchvision==0.12.0+cu113
+
+-f https://nvidia-kaolin.s3.us-east-2.amazonaws.com/torch-1.11.0_cu113.html
+kaolin==0.12.0
