@@ -35,6 +35,9 @@ pip install -r requirements.txt
 ```bash!
 python demo.py --pretrained-root checkpoints/demo --model-name model-1000.pt
 ```
+You should be able to wear me a Doge T-shirt.
+
+<img src="assets/doge.gif" width="512"/> 
 
 4. Try out different functions such as reposing and cloth transfer in `demo.py`. 
 

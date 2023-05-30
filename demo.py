@@ -33,7 +33,7 @@ def main(config):
     evaluator.init_models(trainer)
 
     # Fitting the 32th feature codebook to the unseen 3D mesh
-    evaluator.fitting_3D(32, 'data/test/mesh/mesh-f00190.obj', 'data/test/mesh/mesh-f00190_smpl.obj', fit_rgb=True)
+    evaluator.fitting_3D(32, 'data/test/mesh/mesh-f00194.obj', 'data/test/mesh/mesh-f00194_smpl.obj', fit_rgb=True)
     
     # Generate the 3D mesh using marching cube
     evaluator.reconstruction(32, epoch=999)
@@ -45,26 +45,26 @@ def main(config):
     rendered = update_edited_images('data/test/images', 'data/test/render_dict.pkl')
 
     # Fitting the 32th texture codebook to the edited images
-    evaluator.fitting_2D(32, rendered, 'data/test/mesh/mesh-f00190_smpl.obj')
+    evaluator.fitting_2D(32, rendered, 'data/test/mesh/mesh-f00194_smpl.obj')
 
     # Generate the edited 3D mesh using marching cube
     evaluator.reconstruction(32, epoch=998)
 
     # Repose the 32th subject to a new SMPL-X pose
-    #evaluator.reposing(32, 'data/test/mesh/mesh-f00041_smpl.obj',  epoch=997)
+    #evaluator.reposing(32, 'data/test/mesh/mesh-f00181_smpl.obj',  epoch=997)
 
     # Clothing transfer
     # Load the indices of the lower body vertices
-    #idx = json.load(open('data2.json'))
+    #idx = json.load(open('data/lowerbody.json'))
 
     # Fitting the 33th feature codebook to the other 3D scan
-    #evaluator.fitting_3D(33, 'data/test/mesh/mesh-f00041.obj', 'data/test/mesh/mesh-f00041_smpl.obj', fit_rgb=True)
+    #evaluator.fitting_3D(33, 'data/test/mesh/mesh-f00181.obj', 'data/test/mesh/mesh-f00181_smpl.obj', fit_rgb=True)
 
     # Transfer the clothing (idx) from the 32th subject to the 33th subject
     #evaluator.transfer_features(32, 33, idx)
 
     # Generate the transferred 3D mesh using marching cube
-    #evaluator.reconstruction(32, epoch=996)
+    #evaluator.reconstruction(33, epoch=996)
 
 
 if __name__ == "__main__":
