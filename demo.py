@@ -4,6 +4,7 @@ import numpy as np
 import torch
 import pickle
 import random
+import json
 from lib.models.evaluator import Evaluator
 from lib.models.trainer import Trainer
 
@@ -31,15 +32,40 @@ def main(config):
 
     evaluator.init_models(trainer)
 
-    evaluator.fitting_3D(32, 'data/test/mesh//mesh-f00190', 'data/test/mesh/mesh-f00190_smpl.obj', fit_rgb=True)
+    # Fitting the 32th feature codebook to the unseen 3D mesh
+    evaluator.fitting_3D(32, 'data/test/mesh/mesh-f00190.obj', 'data/test/mesh/mesh-f00190_smpl.obj', fit_rgb=True)
+    
+    # Generate the 3D mesh using marching cube
     evaluator.reconstruction(32, epoch=999)
+
+    # Render the 3D mesh to 2D images
     #rendered = evaluator.render_2D(32, epoch=999)
 
+    # Get the training points from the edited images
     rendered = update_edited_images('data/test/images', 'data/test/render_dict.pkl')
 
+    # Fitting the 32th texture codebook to the edited images
     evaluator.fitting_2D(32, rendered, 'data/test/mesh/mesh-f00190_smpl.obj')
 
+    # Generate the edited 3D mesh using marching cube
     evaluator.reconstruction(32, epoch=998)
+
+    # Repose the 32th subject to a new SMPL-X pose
+    #evaluator.reposing(32, 'data/test/mesh/mesh-f00041_smpl.obj',  epoch=997)
+
+    # Clothing transfer
+    # Load the indices of the lower body vertices
+    #idx = json.load(open('data2.json'))
+
+    # Fitting the 33th feature codebook to the other 3D scan
+    #evaluator.fitting_3D(33, 'data/test/mesh/mesh-f00041.obj', 'data/test/mesh/mesh-f00041_smpl.obj', fit_rgb=True)
+
+    # Transfer the clothing (idx) from the 32th subject to the 33th subject
+    #evaluator.transfer_features(32, 33, idx)
+
+    # Generate the transferred 3D mesh using marching cube
+    #evaluator.reconstruction(32, epoch=996)
+
 
 if __name__ == "__main__":
 
