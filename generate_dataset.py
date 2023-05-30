@@ -244,7 +244,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process dataset to H5 file')
 
-    parser.add_argument("-i", "--input_path", default='./CustomHumans', type=str, help="Path of the input mesh folder")
+    parser.add_argument("-i", "--input_path", default='./CustomHumans/training_dataset', type=str, help="Path of the input mesh folder")
     parser.add_argument("-o", "--output_path", default='./CustomHumans.h5', type=str, help="Path of the output h5 file")
 
     main(parser.parse_args())
