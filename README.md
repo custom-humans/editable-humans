@@ -33,7 +33,7 @@ pip install -r requirements.txt
 
 3. Run a quick demo on fitting to the unseen 3D scan and 2D images.
 ```bash!
-python demo.py --pretrained-root checkpoints/demo --model-name model-1000.pt
+python demo.py --pretrained-root checkpoints/demo --model-name model-1000.pth
 ```
 You should be able to wear me a Doge T-shirt.
 
