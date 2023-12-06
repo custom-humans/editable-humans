@@ -6,24 +6,24 @@
 
 Official code release for CVPR 2023 paper [*Learning Locally Editable Virtual Humans*](https://custom-humans.github.io/).
 
-If you find our code, dataset and paper useful, please cite as
+If you find our code, dataset, and paper useful, please cite as
 ```
 @inproceedings{ho2023custom,
     title={Learning Locally Editable Virtual Humans},
-    author={Hsuan-I Ho, Lixin Xue, Jie Song, and Otmar Hilliges},
+    author={Ho, Hsuan-I and Xue, Lixin and Song, Jie and Hilliges, Otmar},
     booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
     year={2023}
   }
 ```
 
 ## Installation
-Our code has been tested with PyTorch 1.11.0, CUDA 11.3, and a RTX 3090 GPU.
+Our code has been tested with PyTorch 1.11.0, CUDA 11.3, and an RTX 3090 GPU.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Quick start
+## Quick Start
 
 ⚠️ The model checkpoint contains several real human bodies and faces. To download the checkpoint file, you need to agree the CustomHumans Dataset Terms of Use. Click [here](https://forms.gle/oY4PKUyhH6Qqd5YA9) to apply for the dataset. You will find the checkpoint file in the dataset download link.
 
@@ -41,7 +41,7 @@ You should be able to wear me a Doge T-shirt.
 
 4. Try out different functions such as reposing and cloth transfer in `demo.py`. 
 
-## Data preparation
+## Data Preparation
 
 ### CustomHumans
 Apply our dataset by sending a [request](https://forms.gle/oY4PKUyhH6Qqd5YA9). After downloading, you should get 646 textured meshes and SMPL-X meshes. We use only 100 meshes for training. We provide the indices of training meshes [here](https://github.com/custom-humans/editable-humans/blob/main/data/Custom_train.json).
@@ -75,13 +75,13 @@ You should have the following data structure:
 	├── SMPLX_FEMALE.pkl
 	└── SMPLX_FEMALE.npz
 ```
-3. Since online sampling points on meshes during training can be slow, we presample 18M points per mesh and cache them in a h5 file for training. Run the following script to generate the h5 file.
+3. Since online sampling points on meshes during training can be slow, we sample 18M points per mesh and cache them in an h5 file for training. Run the following script to generate the h5 file.
 
 ```bash!
 python generate_dataset.py -i /path/to/dataset/folder
 ```
 
-⚠️ The script will generate a large h5 file (>80GB). If yout don't want to generate that many points, you can adjust the `NUM_SAMPLES` parameter [here](https://github.com/custom-humans/editable-humans/blob/main/generate_dataset.py#L18).
+⚠️ The script will generate a large h5 file (>80GB). If you don't want to generate that many points, you can adjust the `NUM_SAMPLES` parameter [here](https://github.com/custom-humans/editable-humans/blob/main/generate_dataset.py#L18).
 
 ### THuman2.0
 
@@ -106,7 +106,7 @@ Here are some configuration flags you can use, they will override the setting in
 
 ## Evaluation
 
-We use SIZER to evaluate the geometry fitting performance. Please follow the instruction to download their [dataset](https://github.com/garvita-tiwari/sizer).
+We use SIZER to evaluate the geometry fitting performance. Please follow the instructions to download their [dataset](https://github.com/garvita-tiwari/sizer).
 
 We provide subjets' [indices](https://github.com/custom-humans/editable-humans/blob/main/data/SIZER_test.json) and [scripts](https://github.com/custom-humans/editable-humans/blob/main/tools/evaluate.py) for evaluation. 
 
