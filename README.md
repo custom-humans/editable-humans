@@ -1,6 +1,6 @@
 # Learning Locally Editable Virtual Humans
 
-## [Project Page](https://custom-humans.github.io/) | [Paper](https://openaccess.thecvf.com/content/CVPR2023/papers/Ho_Learning_Locally_Editable_Virtual_Humans_CVPR_2023_paper.pdf) | [Youtube(3min)](https://youtu.be/aT8ql5hB3ZM), [Shorts(18sec)](https://youtube.com/shorts/6LTXma_wn4c) | [Dataset](https://forms.gle/oY4PKUyhH6Qqd5YA9)
+## [Project Page](https://custom-humans.github.io/) | [Paper](https://openaccess.thecvf.com/content/CVPR2023/papers/Ho_Learning_Locally_Editable_Virtual_Humans_CVPR_2023_paper.pdf) | [Youtube(3min)](https://youtu.be/aT8ql5hB3ZM), [Shorts(18sec)](https://youtube.com/shorts/6LTXma_wn4c) | [Dataset](https://custom-humans.ait.ethz.ch/)
 
 <img src="assets/teaser.gif" width="800"/> 
 
@@ -25,7 +25,7 @@ pip install -r requirements.txt
 
 ## Quick Start
 
-⚠️ The model checkpoint contains several real human bodies and faces. To download the checkpoint file, you need to agree the CustomHumans Dataset Terms of Use. Click [here](https://forms.gle/oY4PKUyhH6Qqd5YA9) to apply for the dataset. You will find the checkpoint file in the dataset download link.
+⚠️ The model checkpoint contains several real human bodies and faces. To download the checkpoint file, you need to agree the CustomHumans Dataset Terms of Use. Click [here](https://custom-humans.ait.ethz.ch/) to apply for the dataset. You will find the checkpoint file in the dataset download link.
 
 1. Download and put the checkpoint file into the `checkpoints` folder.
 
@@ -44,7 +44,7 @@ You should be able to wear me a Doge T-shirt.
 ## Data Preparation
 
 ### CustomHumans
-Apply our dataset by sending a [request](https://forms.gle/oY4PKUyhH6Qqd5YA9). After downloading, you should get 646 textured meshes and SMPL-X meshes. We use only 100 meshes for training. We provide the indices of training meshes [here](https://github.com/custom-humans/editable-humans/blob/main/data/Custom_train.json).
+Apply our dataset by sending a [request](https://custom-humans.ait.ethz.ch/). After downloading, you should get 646 textured meshes and SMPL-X meshes. We use only 100 meshes for training. We provide the indices of training meshes [here](https://github.com/custom-humans/editable-humans/blob/main/data/Custom_train.json).
 
 1. Prepare the training data following the folder structure:
 ```
